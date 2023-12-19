@@ -125,7 +125,6 @@ public class GameManager : MonoBehaviour
     }
 
     
- 
 
     public IEnumerator GetSceneLoadProgress()
     {
