@@ -19,21 +19,14 @@ public class ActionReplay : MonoBehaviour
     public const string ball = "Ball";
 
    
-
-   
-
-
     // Start is called before the first frame update
     void Start()
     {
-        
-    
         if (transform.childCount != 0) //if object has a trail then get component
         {
             trail = transform.GetChild(0).GetComponent<TrailRenderer>();
         }
        
-
             rb = GetComponent<Rigidbody>();
 
         if (gameObject.name == ball)
@@ -45,7 +38,6 @@ public class ActionReplay : MonoBehaviour
             transform.position = ballTransform.position;  
         }
 
-
         indexChangeRate = 1;
 
             
@@ -55,25 +47,21 @@ public class ActionReplay : MonoBehaviour
     void Update()
     {
 
-  
-
         if ((isInReplayMode) && (!replayButtonOn)) //if in replay mode show replay button
         {
             replayButton.SetActive(true);
             replayButtonOn = true;
         }
 
-        if ((!isInReplayMode) && (replayButtonOn)) //if not in replay mode hide replay button
+        else if ((!isInReplayMode) && (replayButtonOn)) //if not in replay mode hide replay button
         {
             replayButton.SetActive(false);
             replayButtonOn = false;
         }
-
+        
         ReplayHandler();
-
     }
         
-
 
 
     private void FixedUpdate()
@@ -85,7 +73,7 @@ public class ActionReplay : MonoBehaviour
 
         }
 
-        if (isInReplayMode == true)
+        else if (isInReplayMode == true)
         {
        
             float nextIndex = currentReplayIndex + indexChangeRate; //set next replay frame to the current one + 1 (change rate)
